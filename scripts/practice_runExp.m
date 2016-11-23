@@ -1,3 +1,4 @@
+function practice_runExp
 %% PRACTICE RSVP EXPERIMENT
 % 2016-08-17 Created by Julian
 % An intermediate level script for teaching the basics of how we program
@@ -8,7 +9,6 @@
 % This experiment is conducted in 6 runs split between 2 sessions.
 % Each run contains 8 trials (so, 48 trials in total)
 
-function practice_runExp
 %% INPUTS
 % The information we collect using the 'input' function below is very
 % important for running and analysing our experiment smoothly.
@@ -24,7 +24,7 @@ subj.run = input('Run number, 1 to 3:\n','s'); % '1'
 
 % We can also use inputs for other things such as controlling presentation
 % speed, see where 'subj.speed' is called below:
-subj.speed = input('Presentation speed (seconds, default=0.2):'); % 0.2
+subj.speed = input('Presentation speed (seconds, default = 0.2):\n'); % 0.2
 
 %% SAVE LOCATIONS
 % MATLAB is great for integrating multiple scripts and stimuli to perform
@@ -33,8 +33,23 @@ subj.speed = input('Presentation speed (seconds, default=0.2):'); % 0.2
 % script (the 'Current Folder')
 %
 % We define locations we expect to find stimuli or save data relative to
-% the Current Folder. Here I'm defining the location and path for where we
-% save data plus where we have saved experimental trials:
+% the Current Folder. 
+%
+% But before we define locations we have to check whether those locations
+% exist! The if-loops below check for our data and trial folders and create
+% them if they don't exist:
+
+if ~exist('../data/raw','dir')
+    mkdir('../data/raw'); % Here I'm making a location for saving raw data
+end
+
+if ~exist('../stimuli/preprocessed-trials','dir')
+    mkdir('../stimuli/preprocessed-trials'); % ...And a location for trials
+end
+
+% Now I can define the location and path for where we save data plus 
+% where we have saved experimental trials:
+
 save_location = '../data/raw/';
 save_path = [save_location '/' subj.number '_' subj.initials '_' subj.session '_' subj.run];
 trial_location = '../stimuli/preprocessed-trials/';
@@ -53,6 +68,7 @@ addpath('./aux_files/');
 %
 % Firstly, we check if trials exist in the 'trial_location' for this
 % subject number, session, and run:
+
 if exist([trial_location subj.number '/' ...
         subj.number '_s' subj.session '_r' subj.run '.mat'],'file')
     

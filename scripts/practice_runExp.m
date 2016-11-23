@@ -35,6 +35,10 @@ subj.speed = input('Presentation speed (seconds, default=0.2):'); % 0.2
 % We define locations we expect to find stimuli or save data relative to
 % the Current Folder. Here I'm defining the location and path for where we
 % save data plus where we have saved experimental trials:
+
+mkdir('../data/raw'); % Here I'm making a location for saving raw data
+mkdir('../stimuli/preprocessed-trials'); % ...And a location for trials
+
 save_location = '../data/raw/';
 save_path = [save_location '/' subj.number '_' subj.initials '_' subj.session '_' subj.run];
 trial_location = '../stimuli/preprocessed-trials/';

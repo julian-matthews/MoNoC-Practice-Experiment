@@ -14,4 +14,4 @@ _Clone_ the repository and have a play, if you make some cool updates to the tas
 
 The critical m-file for running the experiment is in the scripts subfolder: [**practice_runExp.m**](./scripts/)
 
-[logo]: https://github.com/julian-matthews/monoc-practice-experiment/MoNoC-minimal.png "Monash Neuroscience of Consciousness"
+[logo]: https://github.com/julian-matthews/MoNoC-Practice-Experiment/MoNoC-minimal.png "Monash Neuroscience of Consciousness"

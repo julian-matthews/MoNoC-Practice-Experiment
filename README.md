@@ -8,7 +8,7 @@ A simple and fastidiously commented entry-point into **Psychtoolbox** and how ou
 2. **Psychtoolbox**
   * Available here: http://psychtoolbox.org/
 
-## Description
+### Description
 This _practice_ experiment is intended for those with a basic knowledge of **MATLAB** that hope to grasp the essentials of a running a simple perceptual experiment employing **Psychtoolbox**.
 
 Clone the repository and have a play, if you make some cool updates to the task (perhaps some analysis scripts or extended, helpful comments) open a pull request and we might just add it!

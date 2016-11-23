@@ -11,15 +11,13 @@ A simple and fastidiously commented entry-point into **Psychtoolbox** and how ou
 ## Description
 This _practice_ experiment is intended for those with a basic knowledge of **MATLAB** that hope to grasp the essentials of a running a simple perceptual experiment employing **Psychtoolbox**.
 
-Clone the repository and have a play, if you make some cool updates to the task (_perhaps some analysis scripts or extended, helpful comments_) open a pull request and we might just add it!
+Clone the repository and have a play, if you make some cool updates to the task (perhaps some analysis scripts or extended, helpful comments) open a pull request and we might just add it!
 
 The critical m-file for running the experiment is in the `scripts` subfolder: [`practice_runExp.m`](./scripts/)
-
-~Julian 
 
 
 ![alt_text][avatar]
 
 [logo]: https://raw.githubusercontent.com/julian-matthews/MoNoC-Practice-Experiment/master/MoNoC_minimal.png "Monash Neuroscience of Consciousness"
 
-[avatar]: https://avatars0.githubusercontent.com/u/18410581?v=3&s=96 "Welcome to MoNoC! I'm Julian"
+[avatar]: https://avatars0.githubusercontent.com/u/18410581?v=3&s=96 "I'm Julian, welcome to MoNoC"

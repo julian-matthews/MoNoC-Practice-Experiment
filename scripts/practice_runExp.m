@@ -43,18 +43,21 @@ if ~exist('../data/raw','dir')
     mkdir('../data/raw'); % Here I'm making a location for saving raw data
 end
 
+% We also create a new folder to store the participant's 
 if ~exist('../stimuli/preprocessed-trials','dir')
-    mkdir('../stimuli/preprocessed-trials'); % ...And a location for trials
+    mkdir('../stimuli/preprocessed-trials'); 
 end
 
 % Now I can define the location and path for where we save data plus 
-% where we have saved experimental trials:
+% where we have save experimental trials:
 
 save_location = '../data/raw/';
 save_path = [save_location '/' subj.number '_' subj.initials '_' subj.session '_' subj.run];
 trial_location = '../stimuli/preprocessed-trials/';
 
 % Add auxiliary files folder to path
+% I like to put all the helper functions in a different folder to the main
+% experiment script so it's easier to figure out how to run the experiment
 addpath('./aux_files/');
 
 %% CHECK IF PREPROCESSED TRIALS EXIST AND CREATE IF NOT
@@ -75,9 +78,8 @@ if exist([trial_location subj.number '/' ...
     % If the details are found, we end up here.
     
     % Loading text is displayed in the Command Window and we load the data
-    load_text = sprintf('Loading trial data for subject #%s\n* Session %s * Run %s *', ...
+    fprintf('Loading trial data for subject #%s\n* Session %s * Run %s *', ...
         subj.number, subj.session, subj.run);
-    disp(load_text)
     
     load([trial_location subj.number '/' ...
         subj.number '_s' subj.session '_r' subj.run '.mat'],'TR')
@@ -89,21 +91,18 @@ else
     % It's possible they don't exist or they're saved somewhere else,
     % either way we're going to create them now and continue
     
-    tried_text = sprintf('\nAttempted to find trials for subject #%s, session %s, run %s but no luck...', ...
+    fprintf('\nAttempted to find trials for subject #%s, session %s, run %s but no luck...', ...
         subj.number, subj.session, subj.run);
-    disp(tried_text)
     
-    leave_text = sprintf('\nPassing control to practice_create_trials.m');
-    disp(leave_text)
+    fprintf('\nPassing control to practice_create_trials.m');
     
     % Here we are calling the 'create_trials' script inputting our subject
     % number and the location we wish to save the preprocessed trials
     practice_create_trials(subj.number, trial_location);
     
     % Loading text is displayed in the Command Window and we load the data
-    load_text = sprintf('\nLoading trial data for subject #%s\n* Session %s * Run %s *', ...
+    fprintf('\nLoading trial data for subject #%s\n* Session %s * Run %s *', ...
         subj.number, subj.session, subj.run);
-    disp(load_text)
     
     load([trial_location subj.number '/' ...
         subj.number '_s' subj.session '_r' subj.run '.mat'],'TR')
@@ -370,10 +369,7 @@ if strcmp(examine_yes,'y') || strcmp(examine_yes,'Y')
     mean_accuracy = mean(response_accuracy)
     mean_confidence = mean(confidence)
 else
-    suit_yourself = '\nSuit yourself!';
-    disp(suit_yourself)
-    cheers_emoticon = sprintf('\n\\{''3''}/\n');
-    disp(cheers_emoticon)
+    fprintf('\n\\{''3''}/\n');
 end
 
 end
